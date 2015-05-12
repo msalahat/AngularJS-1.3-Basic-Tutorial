@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+</head>
+<style>
+    body,
+    html {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+    }
+    
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .on {
+        background: white;
+    }
+    
+    .off {
+        background: black;
+        color: #fff;
+    }
+</style>
+
+<body ng-app="IOT">
+    <div class="content" ng-controller="Light" ng-class="{'on':light_status == 'on', 'off':light_status == 'off'}">
+
+        <div ng-switch="light_status">
+            <img ng-switch-when="on" src="img/on.png" />
+            <img ng-switch-when="off" src="img/off.png" />
+        </div>
+
+        <div>
+            <label>On
+                <input type="radio" name="light_status" value="on" ng-model="light_status" />
+            </label>
+            <label>Off
+                <input type="radio" name="light_status" value="off" ng-model="light_status" />
+            </label>
+        </div>
+    </div>
+
+    <script>
+        var IOT = angular.module("IOT", []);
+        IOT.controller("Light", ['$scope', '$rootScope', function (scope, root) {
+            scope.light_status = "off";
+        }]);
+    </script>
+</body>
+
+
+
+</html>

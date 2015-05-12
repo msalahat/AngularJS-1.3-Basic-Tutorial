@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+</head>
+
+<body ng-app="">
+    <div class="content">
+
+        <div ng-switch="light_status">
+            <img ng-switch-when="on" src="img/on.png" />
+            <img ng-switch-when="off" src="img/off.png" />
+        </div>
+
+        <div>
+            <label>On
+                <input type="radio" name="light_status" value="on" ng-model="light_status" />
+            </label>
+            <label>Off
+                <input type="radio" name="light_status" value="off" ng-model="light_status" />
+            </label>
+        </div>
+    </div>
+</body>
+
+
+</html>

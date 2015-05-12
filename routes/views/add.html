@@ -1,0 +1,16 @@
+<div>
+    <form ng-submit="save(SaveForm)" name="SaveForm">
+        <label> Name :
+            <input type="text" name="gname" ng-model="user.gname" />
+        </label>
+        <label> Age :
+            <input type="text" name="gage" ng-model="user.gage" />
+        </label>
+        <label> Job Title :
+            <input type="text" name="gtitle" ng-model="user.gtitle" />
+        </label>
+        <input type="submit" value="save" />
+    </form>
+    <br />
+    <div ng-show="userAdded">User has been added successfuly</div>
+</div>

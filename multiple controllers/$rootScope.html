@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+</head>
+<style>
+    body,
+    html {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+    }
+    
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .on {
+        background: white;
+    }
+    
+    .off {
+        background: black;
+        color: #fff;
+    }
+    
+    .light_ctrl,
+    .condition_ctrl {
+        float: left;
+        width: 40%;
+        height: 100%;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+</style>
+
+<body ng-app="IOT">
+    <div class="content">
+        <div>
+            <label>
+                Enter your name :
+                <input type="text" name="home_owner" ng-model="homeOwner">
+            </label>
+        </div>
+
+        <div class="light_ctrl" ng-controller="LightCtrl" ng-class="{'on':status == 'on', 'off':status == 'off'}">
+            <div>
+                <h1>{{homeOwner}}'s Home Light Controll</h1>
+            </div>
+
+            <div ng-switch="status">
+                <img ng-switch-when="on" src="img/on.png" />
+                <img ng-switch-when="off" src="img/off.png" />
+            </div>
+
+            <div>
+                <label>On
+                    <input type="radio" name="status" value="on" ng-model="status" />
+                </label>
+                <label>Off
+                    <input type="radio" name="status" value="off" ng-model="status" />
+                </label>
+            </div>
+        </div>
+
+        <div class="condition_ctrl" ng-controller="AirCndCtrl">
+            <div>
+                <h4>{{homeOwner}}'s Air Condition Control</h4>
+            </div>
+
+            <div> Air condition {{status}} degree is {{degree}}</div>
+        </div>
+    </div>
+
+    <script>
+        var IOT = angular.module("IOT", []);
+
+        IOT.run(['$rootScope', function ($rootScope) {
+            $rootScope.homeOwner = 'Mutaz Salahat';
+        }]);
+
+        IOT.controller("LightCtrl", ['$scope', '$rootScope', function (scope, root) {
+            scope.status = "off";
+        }]);
+
+
+        IOT.controller("AirCndCtrl", ['$scope', '$rootScope', function (scope, root) {
+            scope.status = "cold";
+            scope.degree = "22";
+        }]);
+        
+        
+    </script>
+</body>
+
+
+
+</html>

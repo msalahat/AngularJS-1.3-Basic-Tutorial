@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="content">
+        <label>Enter your name :
+            <input type="text" name="name" id="uname" ng-model="name" />
+        </label>
+        <div>
+            Hello, <strong id="bind_name"></strong>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#uname").keyup(function (e) {
+                var uname = $("#uname").val();
+                $("#bind_name").html(uname);
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>
